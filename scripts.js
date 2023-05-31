@@ -2,6 +2,7 @@ const result = document.querySelector("#result");
 const myScore = document.querySelector("#my-score");
 const machineScore = document.querySelector("#machine-score");
 const resetButton = document.querySelector(".reset-button");
+const machineChoice = document.querySelector("#machine-choice");
 
 let myScoreCounter = 0;
 let machineScoreCounter = 0;
@@ -15,12 +16,11 @@ const myPlay = (playerChoice) => {
 
 const machinePlay = () => {
   const choice = ["rock", "paper", "scissors"];
-  const machineChoice = Math.floor(Math.random() * 3);
-  return choice[machineChoice];
+  const machineOption = Math.floor(Math.random() * 3);
+  return choice[machineOption];
 };
 
 const gameRules = (player, machine) => {
-  const machineChoice = document.querySelector("#machine-choice");
   machineChoice.innerHTML = `Alexa chose ${machine}!`;
 
   if (player === machine) {
@@ -44,6 +44,7 @@ const resetScore = () => {
   result.innerHTML = "";
   machineScore.innerHTML = "0";
   myScore.innerHTML = "0";
+  machineChoice.innerHTML = "";
   myScoreCounter = 0;
   machineScoreCounter = 0;
 };
